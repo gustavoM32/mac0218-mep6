@@ -1,0 +1,31 @@
+# Comandos para a criação da imagem e para rodar o contêiner
+sudo docker image build . -t custom-caddy:2.5.1-alpine
+sudo docker container run --name my-caddy-server -p 8080:80 -v "${PWD}/pages:/usr/src/pages" -d custom-caddy:2.5.1-alpine
+
+# Comandos que foram rodados durante a realização da tarefa
+sudo docker help
+sudo docker container ls
+sudo docker container ls -a
+sudo docker container help
+sudo docker container run --help
+sudo docker container exec --help
+
+sudo docker image build . -t custom-caddy:2.5.1-alpine
+sudo docker image --help
+sudo docker image ls
+sudo docker container run --name my-caddy-server -p 8080:80 -d custom-caddy:2.5.1-alpine
+sudo docker container stop my-caddy-server
+sudo docker container rm my-caddy-server
+
+sudo docker image build . -t custom-caddy:2.5.1-alpine
+sudo docker container run --name my-caddy-server -p 8080:80 -v pages:/usr/src/pages -d custom-caddy:2.5.1-alpine
+sudo docker exec --help
+sudo docker exec my-caddy-server ls /usr/src/pages
+sudo docker container stop my-caddy-server
+sudo docker container rm my-caddy-server
+
+sudo docker image build . -t custom-caddy:2.5.1-alpine
+sudo docker container run --name my-caddy-server -p 8080:80 -v ./pages:/usr/src/pages -d custom-caddy:2.5.1-alpine
+sudo docker container run --name my-caddy-server -p 8080:80 -v ${PWD}/pages:/usr/src/pages -d custom-caddy:2.5.1-alpine
+sudo docker container run --name my-caddy-server -p 8080:80 -v "${PWD}/pages:/usr/src/pages" -d custom-caddy:2.5.1-alpine
+sudo docker exec my-caddy-server ls /usr/src/pages
